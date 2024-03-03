@@ -11,7 +11,7 @@ const move = ({ source, destination }, options = {}) => {
   try {
     globSync(source).forEach((source) => {
       const dest = join(destination, basename(source));
-      moveSync(source, dest);
+      moveSync(source, dest,{ overwrite: true });
       logger
         .setType(logType)
         .info(`move: move '${source}' to '${destination}'`);
